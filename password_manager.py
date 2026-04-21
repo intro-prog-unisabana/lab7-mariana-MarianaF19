@@ -31,10 +31,10 @@ def encrypt_passwords_in_file(filename: str) -> None:
 
 
 def change_password(filename: str, website: str, password: str) -> bool:
-     filas_actualizadas = []
-encontrado = False
+    filas_actualizadas = []
+    encontrado = False
 
-with open(filename, "r") as f:
+    with open(filename, "r") as f:
         lector = csv.reader(f)
         for fila in lector:
             if fila: 
@@ -43,6 +43,14 @@ with open(filename, "r") as f:
                     encontrado = True
                 
                 filas_actualizadas.append(fila)
+
+    if not encontrado:
+        return False
+
+    with open(filename, "w", newline="") as f:
+        escritor = csv.writer(f)
+        escritor.writerows(filas_actualizadas)
+    return True
     pass
 
 
