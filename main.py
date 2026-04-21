@@ -15,7 +15,11 @@ while True:
             elif len(datos[1]) < 12:
                 print("Password is too short!")
             else:
-                website = datos[0]
+                website = datos[0] 
+                nueva_pass = datos[1]
+                if change_password(filename, website, nueva_pass):
+                    print("Password changed.")
+
 pass
 
 
