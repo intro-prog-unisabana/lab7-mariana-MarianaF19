@@ -10,7 +10,12 @@ while True:
         option = input()
         if option == "1":
             datos = input("Enter the website and the new password: ").split()
-            
+            if len(datos) < 2:
+                print("Input is in the wrong format!")
+            elif len(datos[1]) < 12:
+                print("Password is too short!")
+            else:
+                website = datos[0]
 pass
 
 
