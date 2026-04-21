@@ -33,7 +33,12 @@ while True:
                 website, user, password = datos[0], datos[1], datos[2]
                 add_login(filename, website, user, password)
                 print("Login added.")
-                pass
+        elif option == "3":
+            break
+        
+        else:
+            print("Invalid option selected!")
+            pass
 
 
 if __name__ == "__main__":
