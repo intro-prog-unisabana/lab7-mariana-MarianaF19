@@ -4,7 +4,10 @@ from caesar import caesar_encrypt
 
 
 def encrypt_single_pass(filename: str) -> None:
-    """TODO: Parte 1."""
+    with open(filename, "r") as H: password = H.read().strip()
+    encr_pass = caesar_encrypt(password)
+    with open(filename, "w") as H:
+        H.write(encr_pass)
     pass
 
 
