@@ -19,8 +19,15 @@ while True:
                 nueva_pass = datos[1]
                 if change_password(filename, website, nueva_pass):
                     print("Password changed.")
+                else:
+                    print("Website not found! Operation failed.")
 
-pass
+        elif option == "2":
+            datos = input("Enter the website, username, and password: ").split()
+            
+            if len(datos) < 3:
+
+                pass
 
 
 if __name__ == "__main__":
