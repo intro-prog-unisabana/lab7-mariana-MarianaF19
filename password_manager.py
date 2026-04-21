@@ -12,7 +12,18 @@ def encrypt_single_pass(filename: str) -> None:
 
 
 def encrypt_passwords_in_file(filename: str) -> None:
-    """TODO: Parte 2."""
+    filas_actualizadas = []
+    with open(filename, "r", encoding="utf-8") as f:
+        lector = csv.reader(f)
+        encabezado = next(lector, None)
+    if encabezado:
+            filas_actualizadas.append(encabezado)
+    for fila in lector:
+        if len(fila)>=3:
+                    fila[2] = caesar_encrypt(fila[2])
+                    filas_actualizadas.append(fila)
+    with open(filename, "w", newline="",encoding="utf-8") as f:
+        escritor.writerows(filas_actualizadas)
     pass
 
 
