@@ -26,7 +26,13 @@ while True:
             datos = input("Enter the website, username, and password: ").split()
             
             if len(datos) < 3:
-
+                print("Input is in the wrong format!")
+            elif len(datos[2]) < 12:
+                print("Password is too short!")
+            else:
+                website, user, password = datos[0], datos[1], datos[2]
+                add_login(filename, website, user, password)
+                print("Login added.")
                 pass
 
 
