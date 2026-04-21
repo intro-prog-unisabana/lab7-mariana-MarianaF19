@@ -31,7 +31,18 @@ def encrypt_passwords_in_file(filename: str) -> None:
 
 
 def change_password(filename: str, website: str, password: str) -> bool:
-    """TODO: Parte 3."""
+     filas_actualizadas = []
+encontrado = False
+
+with open(filename, "r") as f:
+        lector = csv.reader(f)
+        for fila in lector:
+            if fila: 
+                if fila[0] == website:
+                    fila[2] = caesar_encrypt(password)
+                    encontrado = True
+                
+                filas_actualizadas.append(fila)
     pass
 
 
